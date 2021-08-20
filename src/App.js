@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Watermark from 'react-awesome-watermark';
+import styled from 'styled-components';
+import "./index.css";
+// import {PDFtoIMG} from 'react-pdf-to-image';
 
-function App() {
+
+
+const StyledWatermark = styled(Watermark)`
+  margin: 0 auto;
+
+  .inner-watermark {
+    width:300;
+    height: 300;
+   
+    font-size: 20px;
+    text-align: center;
+    line-height: 2;
+  }
+
+ 
+`;
+
+
+const defaultWatermarkPosition = {
+  x: 150,
+  y: 150
+};
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+
+    
+     <div className="avatar">
+     <StyledWatermark
+        text="Watermark Rendering"
+          style={{
+            width: 300,
+            height: 300
+          }}
+        //  multiple
+        position={defaultWatermarkPosition}
+         className="Watermark-WatermarkPosition"
         >
-          Learn React
-        </a>
-      </header>
+          <div className="inner-watermark" />
+        </StyledWatermark>
+          </div>
+      {/* <StyledWatermark
+        text="Watermark Rendering"
+        style={{
+          width: 500,
+          height: 500
+        }}
+        multiple
+      >
+      
+      </StyledWatermark> */}
+     
+      
     </div>
   );
 }
-
-export default App;
